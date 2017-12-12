@@ -3,9 +3,8 @@ package repositories
 import models.VehicleAdvert
 import utils.{DateTimeFormatters, TimedCache}
 import anorm.{~, _}
-import anorm.SqlParser.{bool, date, int, scalar, str}
+import anorm.SqlParser.{bool, int, scalar, str}
 import org.joda.time.DateTime
-import org.joda.time.format.{DateTimeFormatter, DateTimeParser}
 
 trait AdvertRepository {
   def getById(id: String): Either[String, VehicleAdvert]
