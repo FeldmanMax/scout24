@@ -1,12 +1,13 @@
 package validators
 
+import com.google.inject.Inject
 import models.{Advert, VehicleAdvert}
 
 trait AdvertServiceValidator {
   def isValid[T <: Advert](advert: T): Either[String, Unit]
 }
 
-class VehicleAdvertServiceValidator extends AdvertServiceValidator {
+class VehicleAdvertServiceValidator @Inject()() extends AdvertServiceValidator {
   override def isValid[T <: Advert](advert: T): Either[String, Unit] = {
     val vehicleAdvert = advert.asInstanceOf[VehicleAdvert]
     basicValidations(vehicleAdvert).right.flatMap { _ => isValidImpl(vehicleAdvert)}

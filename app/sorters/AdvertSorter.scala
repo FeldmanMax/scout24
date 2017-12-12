@@ -1,12 +1,13 @@
 package sorters
 
+import com.google.inject.Inject
 import models.{Advert, VehicleAdvert}
 
 trait AdvertSorter[T <: Advert] {
   def sort(data: List[T], sort_by: String): List[T]
 }
 
-class VehicleAdvertSorter extends AdvertSorter[VehicleAdvert] {
+class VehicleAdvertSorter @Inject()() extends AdvertSorter[VehicleAdvert] {
   private val orderByPrice: Ordering[VehicleAdvert] = Ordering.by(x=>x.price)
   private val orderByTitle: Ordering[VehicleAdvert] = Ordering.by(x=>x.title)
   private val defaultOrdering: Ordering[VehicleAdvert] = Ordering.by(x=>x.id)

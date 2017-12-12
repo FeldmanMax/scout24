@@ -69,4 +69,4 @@ Beta Version
         The only thing that will change is the connection string.
         I am on the early stages of beginning testing the component.
         When this class is going to be finished and you would like to use it the please go to ConfigModule
-        and change the named "vehicle_advert_repository" to the required class
+        and change the named "vehicle_advert_repository" to the required class  
