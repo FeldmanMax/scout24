@@ -7,11 +7,11 @@ import utils.TimedCache
 
 import org.scalatest.EitherValues._
 
-class ImMemoryAdvertRepositorySuite extends FunSuite with BeforeAndAfter with VehicleAdvertCreator {
-  private var repository: ImMemoryAdvertRepository = _
+class InMemoryAdvertRepositorySuite extends FunSuite with BeforeAndAfter with VehicleAdvertCreator {
+  private var repository: InMemoryAdvertRepository = _
 
   before {
-    repository = new ImMemoryAdvertRepository(TimedCache.apply[String, VehicleAdvert]())
+    repository = new InMemoryAdvertRepository(TimedCache.apply[String, VehicleAdvert]())
   }
 
   test("insert/get") {

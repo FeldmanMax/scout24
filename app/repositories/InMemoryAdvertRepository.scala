@@ -14,7 +14,7 @@ trait AdvertRepository {
   def update(advert: VehicleAdvert): Either[String, VehicleAdvert]
 }
 
-class ImMemoryAdvertRepository(cache: TimedCache[String, VehicleAdvert]) extends AdvertRepository{
+class InMemoryAdvertRepository(cache: TimedCache[String, VehicleAdvert]) extends AdvertRepository{
   def getById(id: String): Either[String, VehicleAdvert] = cache.getWithError(id)
   def getAll: Either[String, List[VehicleAdvert]] = cache.getAll()
   def add(advert: VehicleAdvert): Either[String, VehicleAdvert] = {

@@ -8,7 +8,7 @@ import play.api.libs.json.{JsDefined, Json}
 import play.api.mvc._
 import play.api.test._
 import play.api.test.Helpers._
-import repositories.ImMemoryAdvertRepository
+import repositories.InMemoryAdvertRepository
 import services.VehicleAdvertService
 import validators.VehicleAdvertServiceValidator
 import utils.jsonCodec.VehicleAdvertSerializator._
@@ -19,7 +19,7 @@ import utils.TimedCache
 class VehicleAdvertControllerSuite extends PlaySpec with Results with VehicleAdvertCreator {
 
   trait WithControllerAndRequest {
-    val testController = new VehicleAdvertsController(new VehicleAdvertService (new ImMemoryAdvertRepository(TimedCache.apply[String, VehicleAdvert]()), new VehicleAdvertServiceValidator, new VehicleAdvertSorter))
+    val testController = new VehicleAdvertsController(new VehicleAdvertService (new InMemoryAdvertRepository(TimedCache.apply[String, VehicleAdvert]()), new VehicleAdvertServiceValidator, new VehicleAdvertSorter))
     def fakeRequest(method: String = "GET", route: String = "/") = FakeRequest(method, route)
       .withHeaders(
         ("Date", "2014-10-05T22:00:00"),
