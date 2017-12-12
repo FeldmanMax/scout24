@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Get All adverts
+GET     /api/adverts/vehicle            @controllers.VehicleAdvertsController.index(sort_by: String)
+
+# Get advert by id
+GET     /api/adverts/vehicle/:id        @controllers.VehicleAdvertsController.advertById(id: String)
+
+# Add new advert
+POST    /api/adverts/vehicle/add        @controllers.VehicleAdvertsController.add()
+
+# Update
+PUT     /api/adverts/vehicle/:id        @controllers.VehicleAdvertsController.update(id: String)
+
+# Delete an advert
+DELETE  /api/adverts/vehicle/:id        @controllers.VehicleAdvertsController.deleteAdvertById(id: String)
