@@ -58,12 +58,15 @@ Response:
 
 
 Assumptions
-    1.  I attached Guava in memory repository which is a persistent (temporary) cache
-    2.  Sorting of the get all vehicles at the moment is been done for 2 additional fields (id by default):
+
+    1.  I attached Guava in memory repository which is a persistent (temporary) cache (db)
+    2.  Sorting of the get all adverts at the moment is been done for 2 additional fields (id by default):
         a.  title
         b.  price
+    3.  The datetime format of the registration date is: yyyy-MM-dd
         
 Beta Version
+
     1.  I began to write a second repository - SqlAdvertRepository
         I decided to use H2Database because it's the easiest one to change. 
         The only thing that will change is the connection string.
